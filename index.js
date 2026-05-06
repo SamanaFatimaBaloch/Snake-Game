@@ -29,15 +29,7 @@ let food = {x:Math.floor(Math.random()*rows), y: Math.floor(Math.random()*cols)}
 const blocks = [];
 let snake = [ 
     {x:1, y:3} 
-    // {x:1, y:4},
-    // {x:1, y:5}
 ];
-// for(let i = 0; i < rows * cols; i++)
-// {
-//     const block  = document.createElement("div")
-//     block.classList.add("block")
-//     board.appendChild(block);
-// }
 let direction = 'down';
 // let score = 0;
 
@@ -85,6 +77,7 @@ function render()
         }
 
         // Food consumption logic
+    
         if(head.x == food.x && head.y == food.y)
         {
             blocks[`${food.x}-${food.y}`].classList.remove('food')
@@ -98,25 +91,20 @@ function render()
             if(score > highScore)
             {
                 highScore = score
-                localStorage.setItem("highScore",highScore.toString()   ); // localstorage mein data string from mein store hota ha and string form mein hii read kr sken gy
+                localStorage.setItem("highScore",highScore.toString()   );
             }
         }
     snake.forEach(segment=>{
         blocks[`${segment.x}-${segment.y}`].classList.remove("fill");
        
     })
-    snake.unshift(head); // unshift snake array ke shuro mein head add kr de ga
+    snake.unshift(head);
     snake.pop();
 
     snake.forEach(segment=>{
         blocks[`${segment.x}-${segment.y}`].classList.add("fill");
     })
-}
-    // intervalId = setInterval(()=>
-    // {
-    //     render();
-    // },300)
-    
+}   
 buttonStart.addEventListener("click",()=>
 {
     modal.style.display = "none";
