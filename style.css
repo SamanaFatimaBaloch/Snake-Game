@@ -80,8 +80,6 @@ section .infos
 }
 .block
 {
-    /* width: 30px;
-    height: 30px; */
     border: 1px solid var(--border-primary-color);
     border-radius: 50%;
 }
