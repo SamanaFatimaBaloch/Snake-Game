@@ -31,8 +31,6 @@ let snake = [
     {x:1, y:3} 
 ];
 let direction = 'down';
-// let score = 0;
-
 for(let row = 0; row < rows; row++)
 {
     for(let col = 0; col < cols; col++)
@@ -40,7 +38,6 @@ for(let row = 0; row < rows; row++)
     const block  = document.createElement("div")
     block.classList.add("block")
     board.appendChild(block);
-    // block.innerText = [`${row}-${col}`];
     blocks[`${row}-${col}`] = block;
     }
 }
@@ -64,10 +61,11 @@ function render()
         {
             head = { x:snake[0].x - 1, y:snake[0].y }
         }
+    
         // Wall Collison Logic
+    
         if(head.x < 0 || head.x >= rows || head.y < 0 || head.y >= cols)
         {
-            // alert("Game Over");
             clearInterval(intervalId)
             modal.style.display = "flex";
             startGameModal.style.display = "none"
